@@ -1,0 +1,27 @@
+micronaut:
+    application:
+        name: complete
+
+ninetynine:
+    api:  ${NINETYNINE_API:testapi}
+    apiversion: 1
+            
+application:
+    max: 50
+
+datasources:
+    default:
+        url: ${JDBC_URL:`jdbc:postgresql://localhost:5432/micronaut`}
+        username: ${JDBC_USER:dbuser}
+        password: ${JDBC_PASSWORD:theSecretPassword}
+        driverClassName: ${JDBC_DRIVER:org.postgresql.Driver}
+
+jpa:
+    default:
+        packages-to-scan:
+            - 'example.micronaut.domain'
+        properties:
+            hibernate:
+                hbm2ddl:
+                    auto: update
+                show_sql: true
